@@ -1,0 +1,122 @@
+🍇 WhatsBerry Server - Local Setup Guide
+This guide will help you set up the WhatsBerry Server on your own computer (Windows, Mac, or Linux). This server acts as a bridge, allowing your BlackBerry Classic to connect to WhatsApp.
+
+✅ Prerequisites
+Before you start, make sure you have:
+
+A Computer (Laptop or Desktop) connected to Wi-Fi.
+
+Your BlackBerry Classic connected to the SAME Wi-Fi network.
+
+A Primary Phone (Android or iPhone) with an active WhatsApp account (to scan the QR code).
+
+🛠️ Step 1: Install Node.js
+Your computer needs "Node.js" to run this server.
+
+Go to the official website: nodejs.org.
+
+Download the LTS Version (Recommended for Most Users).
+
+Install it just like any other program (Click Next, Next, Finish).
+
+📥 Step 2: Download the Server Code
+You need to get the code from this repository onto your computer.
+
+Option A: The Easy Way (Download ZIP)
+
+Scroll up to the top of this GitHub page.
+
+Click the green <> Code button.
+
+Click Download ZIP.
+
+Extract (Unzip) the folder to your Desktop. You should now have a folder named WhatsBerryServer-main.
+
+Option B: The Developer Way (Git) Open your terminal/command prompt and run:
+
+Bash
+
+git clone https://github.com/jackyadav79000/WhatsBerryServer.git
+⚙️ Step 3: Install Dependencies
+Now we need to install the "brains" of the server.
+
+Open the Command Prompt (on Windows) or Terminal (on Mac/Linux).
+
+Type cd followed by a space, then drag and drop the WhatsBerryServer folder into the terminal window. It will look something like this:
+
+Bash
+
+cd C:\Users\YourName\Desktop\WhatsBerryServer
+Press Enter.
+
+Now, type this command and press Enter:
+
+Bash
+
+npm install
+(Wait for it to finish. It might take 1-2 minutes to download the necessary files).
+
+🚀 Step 4: Start the Server
+In the same terminal window, type:
+
+Bash
+
+node server.js
+Press Enter.
+
+Wait a few seconds. A QR Code will appear inside your terminal window.
+
+📱 Step 5: Log In
+Take your Real Smartphone (Android/iPhone) with WhatsApp.
+
+Open WhatsApp > Settings > Linked Devices.
+
+Tap Link a Device.
+
+Scan the QR code displayed on your computer screen.
+
+The terminal will say: "✅ WhatsBerry Bridge is Ready!"
+
+🔗 Step 6: Connect your BlackBerry
+Now we need to tell your BlackBerry where your computer is.
+
+1. Find your Computer's IP Address:
+
+Windows: Open a new Command Prompt, type ipconfig, and press Enter. Look for IPv4 Address. (Example: 192.168.1.5).
+
+Mac/Linux: Open Terminal, type ifconfig or ip a. Look for the address next to inet.
+
+2. Open the App:
+
+Launch WhatsBerry on your BlackBerry Classic.
+
+Enter the IP Address you found, followed by :3000.
+
+Example: http://192.168.1.5:3000
+
+Click Connect.
+
+❓ Troubleshooting
+Issue: The BlackBerry says "Connection Failed"
+
+Check Wi-Fi: Are both devices on the exact same Wi-Fi network? (Not one on 5GHz and one on 2.4GHz Guest).
+
+Check Firewall (Most Common): Windows Firewall might be blocking the connection.
+
+Search for "Firewall & Network Protection" on Windows.
+
+Temporarily turn off Private Network firewall to test.
+
+Check IP: Your computer's IP address might change if you restart your router. Check ipconfig again.
+
+Issue: Server crashes with "Evaluation Failed"
+
+WhatsApp updates their web code frequently.
+
+Stop the server (Ctrl+C).
+
+Delete the folder .wwebjs_auth.
+
+Run npm install whatsapp-web.js@latest.
+
+Run node server.js and scan again.
